@@ -6,8 +6,9 @@ Build an ETL pipeline that extracts their data from S3, processes it with Spark,
 ## Contents
 1. etl.py: Python file with functions to run ETL processing using PySpark
 2. dl.cfg: Configuration file which holds AWS credentials
-3. Data Lake Schema 
-4. README.md
+3. requirements.txt: List of Python packages required to complete the ETL
+4. Data Lake Schema 
+5. README.md
 ## Schema
 ![ERD](Sparkify_ERD.png)
 ## Prerequisites
