@@ -13,7 +13,7 @@ Build an ETL pipeline that extracts their data from S3, processes it with Spark,
 ![ERD](Sparkify_ERD.png)
 ## Prerequisites
 1. Python 3.6.x or newer
-2. AWS cliv2, SSH, and less
+2. AWS cliv2 (https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), SSH, and less
 4. An active AWS EMR Cluster in us-west-2 with 5 instances
 5. An active S3 bucket in us-west-2
 6. Private key file (in your workspace)
