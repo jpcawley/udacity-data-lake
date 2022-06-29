@@ -24,16 +24,16 @@ Build an ETL pipeline that extracts their data from S3, processes it with Spark,
 ```
 ssh -i <path to private key file> hadoop@<master node host>
 ```
-Once connected, type `logout`
-In your root directory, 
-copy `<privatekey>.pem` file to hadoop
+4. Once connected, type `logout`
+5. In your root directory, 
+* copy `<privatekey>.pem` file to hadoop
 ```
 scp -i <path to private key file> <path to private key file> hadoop@<master node host>:/home/hadoop/
 ```
-copy `etl.py`, `dl.cfg`, and `requirements.txt` files to hadoop
+* copy `etl.py`, `dl.cfg`, and `requirements.txt` files to hadoop
 ```
 scp -i <path to private key file> <file name> hadoop@<master node host>:/home/hadoop/
 ```
-Reconnect to your EMR Cluster then in your Hadoop terminal,
+6. Reconnect to your EMR Cluster then in your Hadoop terminal,
 * Install requirements using `pip install --user -r requirements.txt`
 * Run `spark-submit etl.py`
