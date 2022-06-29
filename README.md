@@ -41,4 +41,4 @@ scp -i <path to private key file> etl.py hadoop@<master node host>:/home/hadoop/
 ```
 scp -i <path to private key file> dl.cfg hadoop@<master node host>:/home/hadoop/
 ```
-Install requirements using `pip install --user <package>`
+Install requirements using `pip install --user -r requirements.txt`
