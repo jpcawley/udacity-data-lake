@@ -16,13 +16,10 @@ Build an ETL pipeline that extracts their data from S3, processes it with Spark,
 3. SSH
 4. An active AWS EMR Cluster in us-west-2 with 5 instances
 5. An active S3 bucket in us-west-2
-6. Private key file (inyour workspace)
-## Python Library for EMR Cluster
-* configparser
-* datetime
+6. Private key file (in your workspace)
 ## How to Run
 1. Add AWS credentials to dl.cfg (with quotes)
-2. Add bucket name to line 169 in etl.py
+2. Add bucket name to output_Data on line 188 in etl.py
 3. Ensure you can connect to your EMR cluster (run ssh)
 ```
 ssh -i <path to private key file> hadoop@<master node host>
@@ -31,14 +28,15 @@ Once connected, type
 ```
 logout
 ```
-In your root directory, copy `etl.py`, `dl.cfg`, and `<privatekey>.pem` file to hadoop
+In your root directory, 
+copy `<privatekey>.pem` file to hadoop
 ```
 scp -i <path to private key file> <path to private key file> hadoop@<master node host>:/home/hadoop/
 ```
+copy `etl.py`, `dl.cfg`, and `requirements.txt` files to hadoop
 ```
-scp -i <path to private key file> etl.py hadoop@<master node host>:/home/hadoop/
+scp -i <path to private key file> <file name> hadoop@<master node host>:/home/hadoop/
 ```
-```
-scp -i <path to private key file> dl.cfg hadoop@<master node host>:/home/hadoop/
-```
-Install requirements using `pip install --user -r requirements.txt`
+Reconnect to your EMR Cluster then,
+* Install requirements using `pip install --user -r requirements.txt`
+* Run `spark-submit etl.py`
