@@ -18,8 +18,8 @@ def get_config_variables():
     os.environ['AWS_ACCESS_KEY_ID'] = config['AWS']['AWS_ACCESS_KEY_ID']
     os.environ['AWS_SECRET_ACCESS_KEY'] = config['AWS']['AWS_SECRET_ACCESS_KEY']
     
-    input_data = os.environ['INPUT_DATA'] = config['PATH']['INPUT_DATA']
-    output_data = os.environ['OUTPUT_DATA'] = config['PATH']['OUTPUT_DATA']
+    input_data =  = config['PATH']['INPUT_DATA']
+    output_data = config['PATH']['OUTPUT_DATA']
     
     return input_data, output_data
 
