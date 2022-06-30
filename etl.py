@@ -17,6 +17,11 @@ def get_config_variables():
 
     os.environ['AWS_ACCESS_KEY_ID'] = config['AWS']['AWS_ACCESS_KEY_ID']
     os.environ['AWS_SECRET_ACCESS_KEY'] = config['AWS']['AWS_SECRET_ACCESS_KEY']
+    
+    input_data = os.environ['INPUT_DATA'] = config['PATH']['INPUT_DATA']
+    output_data = os.environ['OUTPUT_DATA'] = config['PATH']['OUTPUT_DATA']
+    
+    return input_data, output_data
 
 
 def create_spark_session():
@@ -176,16 +181,13 @@ def main():
     '''
     start_time = time.time()
 
-    get_config_variables
+    input_data, output_data = get_config_variables()
     spark = create_spark_session()
 
     # task parallelism: https://knowledge.udacity.com/questions/73278
     sc = spark.sparkContext
     sc._jsc.hadoopConfiguration().set(
         "mapreduce.fileoutputcommitter.algorithm.version", "2")
-
-    input_data = "s3a://udacity-dend/"
-    output_data = "s3a://<bucket_name>/"
     
     song_df = read_song_data(spark, input_data)
 
